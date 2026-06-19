@@ -3,98 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio - Muhamad Saepul Ma'ruf</title>
+    <title>Muhamad Saepul Ma'ruf - Portofolio</title>
     <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            line-height: 1.6;
-            color: #111;
-            background-color: #fff;
-            max-width: 600px;
-            margin: 40px auto;
-            padding: 0 20px;
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #111111;
+            --text-muted: #555555;
+            --border-color: #eaeaea;
+            --hover-bg: #f7f7f7;
         }
-        header { margin-bottom: 40px; }
-        h1 { font-size: 28px; margin-bottom: 5px; font-weight: 700; letter-spacing: -0.5px; }
-        .title { color: #666; font-size: 16px; margin-bottom: 15px; }
-        .contact { font-size: 14px; color: #444; }
-        .contact a { color: #111; text-decoration: none; border-bottom: 1px solid #ccc; margin-right: 10px; }
-        section { margin-bottom: 35px; }
-        h2 { font-size: 14px; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #eee; padding-bottom: 5px; margin-bottom: 15px; }
-        p { text-align: justify; font-size: 15px; }
-        .item { margin-bottom: 20px; }
-        .item-header { display: flex; justify-content: space-between; font-weight: 600; font-size: 15px; }
-        .item-sub { color: #555; font-size: 14px; margin-bottom: 5px; }
-        ul { padding-left: 20px; margin-top: 5px; font-size: 14.5px; }
-        li { margin-bottom: 5px; }
-        .skills-grid { display: flex; justify-content: space-between; }
-        .skills-col { width: 48%; }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-main);
+            background-color: var(--bg-color);
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        /* Header & Animasi */
+        header {
+            margin-bottom: 40px;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+            font-weight: 400;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        .contact-links a, .credential-link {
+            color: var(--text-main);
+            text-decoration: none;
+            border-bottom: 1px solid #b5b5b5;
+            transition: all 0.2s ease;
+            font-weight: 500;
+        }
+
+        .contact-links a:hover, .credential-link:hover {
+            color: var(--text-muted);
+            border-bottom-color: var(--text-muted);
+            opacity: 0.8;
+        }
+
+        /* Section Global */
+        section {
+            margin-bottom: 35px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1.2px;
+            color: var(--text-main);
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 6px;
+            margin-bottom: 16px;
+        }
+
+        p {
+            font-size: 15px;
+            color: #222;
+            text-align: justify;
+        }
+
+        /* Interaktif Blok (Card Transisi) */
+        .card {
+            padding: 12px;
+            margin-left: -12px;
+            margin-right: -12px;
+            border-radius: 8px;
+            transition: background-color 0.25s ease;
+            margin-bottom: 12px;
+        }
+
+        .card:hover {
+            background-color: var(--hover-bg);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 4px;
+        }
+
+        .card-title {
+            font-size: 15px;
+            font-weight: 600;
+        }
+
+        .card-date {
+            font-size: 13px;
+            color: var(--text-muted);
+            font-variant-numeric: tabular-nums;
+        }
+
+        .card-sub {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 8px;
+        }
+
+        /* List & Keterangan */
+        ul {
+            padding-left: 18px;
+            font-size: 14.5px;
+            color: #222;
+        }
+
+        li {
+            margin-bottom: 6px;
+            text-align: justify;
+        }
+
+        /* Layout Grid Keahlian */
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        @media (max-width: 480px) {
+            .skills-container {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            h1 { font-size: 28px; }
+        }
+
+        .skills-group strong {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        /* Animasi Efek Masuk */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(8px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
 
     <header>
         <h1>Muhamad Saepul Ma'ruf</h1>
-        <div class="title">Financial Data Entry & Spreadsheet Support</div>
-        <div class="contact">
-            <span>085117120062</span> | 
-            <a href="mailto:contact.saepulmaruf@gmail.com">Email</a> | 
+        <div class="subtitle">Financial Data Entry & Spreadsheet Support</div>
+        <div class="contact-links">
+            <span>085117120062</span>
+            <a href="mailto:contact.saepulmaruf@gmail.com">Email</a>
+            <span>Cianjur, Jawa Barat</span>
             <a href="https://linkedin.com/in/muhamad-saepul-ma-ruf-99b9223bb" target="_blank">LinkedIn</a>
         </div>
     </header>
 
     <section>
         <h2>Profil</h2>
-        <p>Profesional administrasi dan pengolah data keuangan yang teliti, fokus pada akurasi entry data, validasi, serta efisiensi manajemen spreadsheet. Mahir mengoperasikan Microsoft Excel dan Google Sheets untuk mengelola dataset, meminimalkan risiko kesalahan input, dan merapikan dokumen keuangan.</p>
+        <p>Profesional administrasi dan pengolah data keuangan yang teliti, fokus pada akurasi entry data, validasi, serta efisiensi manajemen spreadsheet. Mahir mengoperasikan Microsoft Excel dan Google Sheets untuk mengelola dataset besar, meminimalkan risiko kesalahan input, dan merapikan catatan transaksi agar siap dianalisis dan mudah diverifikasi.</p>
     </section>
 
     <section>
-        <h2>Pengalaman</h2>
-        <div class="item">
-            <div class="item-header">
-                <div>Staf Administrasi Keuangan</div>
-                <div>2025 &ndash; Sekarang</div>
+        <h2>Pengalaman Kerja</h2>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Staf Administrasi Keuangan (Data Entry & Rekonsiliasi)</div>
+                <div class="card-date">Apr 2025 &ndash; Sekarang</div>
             </div>
-            <div class="item-sub">Kandias Plastik &mdash; Cianjur</div>
+            <div class="card-sub">Kandias Plastik &bull; Ciranjang, Cianjur</div>
             <ul>
-                <li>Bertanggung jawab penuh atas akurasi input harian transaksi keuangan ke dalam master spreadsheet perusahaan secara sistematis.</li>
-                <li>Melakukan proses rekonsiliasi harian untuk memvalidasi kesesuaian data transaksi dan meminimalkan risiko selisih.</li>
-                <li>Mendukung penyusunan laporan keuangan bulanan yang rapi dan terstruktur.</li>
+                <li>Mengelola dan menginput transaksi harian ke master spreadsheet perusahaan secara terjadwal dengan fokus pada validitas data.</li>
+                <li>Melakukan proses rekonsiliasi berkala untuk meminimalkan risiko selisih dan mendeteksi anomali catatan keuangan sejak dini.</li>
+                <li>Mendukung penyusunan draf laporan bulanan internal yang rapi dan terstruktur rapi guna mempermudah peninjauan oleh manajemen.</li>
+                <li>Merapikan manajemen arsip dokumen digital transaksi harian agar sistematis dan mudah diakses saat dibutuhkan.</li>
             </ul>
         </div>
     </section>
 
     <section>
-        <h2>Sertifikasi</h2>
-        <div class="item">
-            <div class="item-header">
-                <div>Fundamentals of Finance</div>
-                <div>Januari 2016</div>
+        <h2>Sertifikasi Profesional</h2>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Fundamentals of Finance</div>
+                <div class="card-date">Januari 2016</div>
             </div>
-            <div class="item-sub">University of California, Irvine (via Coursera)</div>
-            <div class="item-sub">Kredensial: <a href="https://coursera.org/verify/Y327FS48U7JE" target="_blank" style="color:#111; border-bottom:1px solid #aaa; text-decoration:none;">Lihat Sertifikat</a></div>
+            <div class="card-sub">University of California, Irvine (via Coursera)</div>
+            <ul>
+                <li>Mempelajari dasar manajemen keuangan, pemahaman laporan keuangan dasar, serta konsep nilai waktu dari uang (time value of money).</li>
+                <li style="list-style: none; margin-top: 8px;">
+                    <a href="https://coursera.org/verify/Y327F5X4U75I" target="_blank" class="credential-link">Verifikasi Kredensial Online</a>
+                </li>
+            </ul>
         </div>
     </section>
 
     <section>
-        <h2>Keahlian</h2>
-        <div class="skills-grid">
-            <div class="skills-col">
-                <strong>Teknis:</strong>
+        <h2>Keahlian & Kompetensi</h2>
+        <div class="skills-container">
+            <div class="skills-group">
+                <strong>Teknis (Hard Skills):</strong>
                 <ul>
-                    <li>Data Entry & Validasi</li>
-                    <li>Excel & Google Sheets</li>
-                    <li>Rekonsiliasi Data</li>
+                    <li>Data Entry & Validasi Data</li>
+                    <li>Microsoft Excel & Google Sheets</li>
+                    <li>Pemrosesan Formula Spreadsheet</li>
+                    <li>Rekonsiliasi Harian/Bulanan</li>
                 </ul>
             </div>
-            <div class="skills-col">
-                <strong>Non-Teknis:</strong>
+            <div class="skills-group">
+                <strong>Non-Teknis (Soft Skills):</strong>
                 <ul>
-                    <li>Ketelitian Tinggi</li>
-                    <li>Integritas Data</li>
-                    <li>Manajemen Waktu</li>
+                    <li>Ketelitian & Detail-Oriented</li>
+                    <li>Integritas Kejujuran Data</li>
+                    <li>Manajemen Waktu yang Baik</li>
+                    <li>Kemampuan Beradaptasi Cepat</li>
                 </ul>
             </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Pendidikan</h2>
+        <div class="card">
+            <div class="card-header">
+                <div class="card-title">Pendidikan Agama</div>
+                <div class="card-date">Lulus</div>
+            </div>
+            <div class="card-sub">Asy-Syifaa Wal Mahmuudiyyah &bull; Sumedang, Jawa Barat</div>
+            <p style="font-style: italic; color: var(--text-muted); font-size: 14px; margin-top: 2px;">
+                Membentuk karakter kerja yang berintegritas, disiplin tinggi, jujur, serta ketelitian mendalam yang diterapkan dalam tata kelola data profesional.
+            </p>
         </div>
     </section>
 
